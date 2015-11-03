@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.js"></script>
+	<script src="./sudokuSolver.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="sudokuSolver.css"></link>
+</head>
+<body>
+	<div class="container" ng-app="sudokuSolver" ng-controller="sudokuController">
+		<table>
+			<tr ng-repeat="row in grid track by $index">
+				<td ng-repeat="cell in row track by $index" class="cell">
+					<input type="text" id="{{cell}}" placeholder="0" class="cell" ng-model="row[$index].value"></input>
+				</td>
+			</tr>
+		</table>
+		<p ng-bind="grid[0][0].value"></p>
+		<button ng-click="clear()">Clear</button>
+		<button ng-click="solve()">Solve</button>
+	</div>
+</body>
