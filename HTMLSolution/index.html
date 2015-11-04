@@ -10,14 +10,13 @@
 <body>
 	<div class="container" ng-app="sudokuSolver" ng-controller="sudokuController">
 		<table>
-			<tr ng-repeat="row in grid track by $index">
-				<td ng-repeat="cell in row track by $index" class="cell">
-					<input type="text" id="{{cell}}" placeholder="0" class="cell" ng-model="row[$index].value"></input>
+			<tr ng-repeat="(i,row) in grid track by $index">
+				<td ng-repeat="(j,cell) in row track by $index" class="cell">
+					<input type="text" placeholder="0" ng-disabled="dsbld" class="cell" ng-model="grid[i][j].val"></input>
 				</td>
 			</tr>
 		</table>
-		<p ng-bind="grid[0][0].value"></p>
 		<button ng-click="clear()">Clear</button>
-		<button ng-click="solve()">Solve</button>
+		<button ng-click="do()">Solve</button>
 	</div>
 </body>
