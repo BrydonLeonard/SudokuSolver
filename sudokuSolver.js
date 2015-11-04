@@ -17,7 +17,7 @@ solver.controller('sudokuController', ['$scope', function($scope){
 	}
 	$scope.grid = grid;
 	$scope.clear = function(){
-		//Claer grid
+		//Clear grid
 	}
 	$scope.solve = function(){
 		//Solve grid
